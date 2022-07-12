@@ -746,6 +746,7 @@ function matriz_aleatoria() {
 		addRadomSand();
 		i++;
 	}
+	reset_number_of_steps();
 }
 
 function get_totalSand() {

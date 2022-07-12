@@ -7,10 +7,10 @@
     <base href="/" />
     <!-- ####################################################### CSS IMPORTS -->
     <style>
-      @import "assets/css/bootstrap.min.css";
-      @import "assets/css/scrollbar.css";
-      @import "assets/css/modal.css";
-      @import "assets/css/elements.css";
+      @import "./assets/css/bootstrap.min.css";
+      @import "./assets/css/scrollbar.css";
+      @import "./assets/css/modal.css";
+      @import "./assets/css/elements.css";
     </style>
   </head>
 
@@ -65,7 +65,7 @@
           />
           <button
             id="playButton"
-            onclick="playPause(this); get_totalSand()"
+            onclick="playPause(this); get_totalSand();"
             class="btn btn-default"
             style="margin-right: 20px; font-weight: bold"
           >
@@ -167,7 +167,7 @@
 					<input type="file" id="inputCustom" accept=".png,.jpg,.jpeg,.bmp" style="display:none;" />
 				</form>-->
         <button
-          onclick="drawTiling()"
+          onclick="drawTiling(); reset_number_of_steps();"
           style="
             margin-left: auto;
             margin-right: auto;
@@ -553,46 +553,46 @@
     <div class="canvasDiv" id="canvasHolder"></div>
 
     <!-- ################################################################ JS Imports -->
-    <script src="assets/js/Utils/jquery.min.js"></script>
-    <script src="assets/js/Utils/three.min.js"></script>
-    <script src="assets/js/Utils/OrthographicTrackballControls.js"></script>
-    <script src="assets/js/Utils/bootstrap.min.js"></script>
-    <script src="assets/js/Utils/earcut.js"></script>
-    <script src="assets/js/Utils/Geometry.js"></script>
-    <script src="assets/js/Utils/Matrix.js"></script>
-    <script src="assets/js/Utils/Combinatorics.js"></script>
+    <script src="./assets/js/Utils/jquery.min.js"></script>
+    <script src="./assets/js/Utils/three.min.js"></script>
+    <script src="./assets/js/Utils/OrthographicTrackballControls.js"></script>
+    <script src="./assets/js/Utils/bootstrap.min.js"></script>
+    <script src="./assets/js/Utils/earcut.js"></script>
+    <script src="./assets/js/Utils/Geometry.js"></script>
+    <script src="./assets/js/Utils/Matrix.js"></script>
+    <script src="./assets/js/Utils/Combinatorics.js"></script>
     <!-- <script src="assets/js/Utils/gpu-browser.min.js"></script> -->
 
-    <script src="assets/js/Tiling.js"></script>
+    <script src="./assets/js/Tiling.js"></script>
 
-    <script src="assets/js/TilingPresets/HexTiling.js"></script>
-    <script src="assets/js/TilingPresets/TriTiling.js"></script>
-    <script src="assets/js/TilingPresets/PenroseTiling.js"></script>
-    <script src="assets/js/TilingPresets/CustomSquareTiling.js"></script>
-    <script src="assets/js/TilingPresets/SquareTiling.js"></script>
-    <script src="assets/js/TilingPresets/Pythagorean.js"></script>
-    <script src="assets/js/TilingPresets/TruncSquare.js"></script>
-    <script src="assets/js/TilingPresets/CairoPentagonal.js"></script>
-    <script src="assets/js/TilingPresets/PenroseP0.js"></script>
+    <script src="./assets/js/TilingPresets/HexTiling.js"></script>
+    <script src="./assets/js/TilingPresets/TriTiling.js"></script>
+    <script src="./assets/js/TilingPresets/PenroseTiling.js"></script>
+    <script src="./assets/js/TilingPresets/CustomSquareTiling.js"></script>
+    <script src="./assets/js/TilingPresets/SquareTiling.js"></script>
+    <script src="./assets/js/TilingPresets/Pythagorean.js"></script>
+    <script src="./assets/js/TilingPresets/TruncSquare.js"></script>
+    <script src="./assets/js/TilingPresets/CairoPentagonal.js"></script>
+    <script src="./assets/js/TilingPresets/PenroseP0.js"></script>
 
-    <script src="assets/js/TilingPresets/SubstitutionAPI.js"></script>
-    <script src="assets/js/TilingPresets/PenroseP2Substitution.js"></script>
-    <script src="assets/js/TilingPresets/PenroseP3Substitution.js"></script>
-    <script src="assets/js/TilingPresets/AmmannBeenkerA5Substitution.js"></script>
-    <script src="assets/js/TilingPresets/BirdsBeesSubstitution.js"></script>
-    <script src="assets/js/TilingPresets/TriangleSubstitution.js"></script>
+    <script src="./assets/js/TilingPresets/SubstitutionAPI.js"></script>
+    <script src="./assets/js/TilingPresets/PenroseP2Substitution.js"></script>
+    <script src="./assets/js/TilingPresets/PenroseP3Substitution.js"></script>
+    <script src="./assets/js/TilingPresets/AmmannBeenkerA5Substitution.js"></script>
+    <script src="./assets/js/TilingPresets/BirdsBeesSubstitution.js"></script>
+    <script src="./assets/js/TilingPresets/TriangleSubstitution.js"></script>
 
-    <script src="assets/js/TilingPresets/CutAndProjectViaMultigrid.js"></script>
+    <script src="./assets/js/TilingPresets/CutAndProjectViaMultigrid.js"></script>
 
-    <script src="assets/js/Features/ChangeDisplay.js"></script>
-    <script src="assets/js/Features/ImportExport.js"></script>
+    <script src="./assets/js/Features/ChangeDisplay.js"></script>
+    <script src="./assets/js/Features/ImportExport.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script src="assets/js/Features/Stats.js"></script>
-    <script src="assets/js/Features/Harmonics.js"></script>
-    <script src="assets/js/Features/Roundness.js"></script>
-    <script src="assets/js/Features/Batch_processings.js"></script>
+    <script src="./assets/js/Features/Stats.js"></script>
+    <script src="./assets/js/Features/Harmonics.js"></script>
+    <script src="./assets/js/Features/Roundness.js"></script>
+    <script src="./assets/js/Features/Batch_processings.js"></script>
 
-    <script src="assets/js/app.js"></script>
+    <script src="./assets/js/app.js"></script>
   </body>
   <!-- ############################################################ End. -->
 </html>
