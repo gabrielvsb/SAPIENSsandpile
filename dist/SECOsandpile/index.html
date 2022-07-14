@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
+<!DOCTYPE html><html lang="pt-br"><head>
+    <meta charset="UTF-8">
     <title>SAPIENS</title>
-    <link rel="icon" href="favicon.ico" />
-    <base href="/" />
+    <link rel="icon" href="favicon.ico">
+    <base href="https://mattfauth.github.io/SAPIENSsandpile/">
     <!-- ####################################################### CSS IMPORTS -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./assets/css/scrollbar.css" />
-    <link rel="stylesheet" href="./assets/css/elements.css" />
-  </head>
+    <style>
+      @import "./src/assets/css/bootstrap.min.css";
+      @import "./assets/css/scrollbar.css";
+      @import "./assets/css/modal.css";
+      @import "./assets/css/elements.css";
+    </style>
+  <style>nav{left:0;}.controlGroup{margin-bottom:0;}</style><link rel="stylesheet" href="styles.3341d7c6954170d562ce.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.3341d7c6954170d562ce.css"></noscript></head>
 
   <body>
     <app-root></app-root>
@@ -19,53 +20,20 @@
         <span>SAndPIle ENvironment Simulator</span>
       </div>
       <div>
-        <span
-          style="
+        <span style="
             margin-left: 10px;
             margin-right: 80px;
             font-size: 35px;
             font-weight: bold;
-          "
-          >SAPIENS</span
-        >
+          ">SAPIENS</span>
         <div style="position: absolute; top: 14px; margin-left: 24%">
           Zoom (%):
-          <input
-            type="number"
-            id="zoomLevel"
-            style="margin-right: 20px"
-            oninput="set_zoom(this)"
-            value="100"
-            max="9999"
-            step="10"
-          />
+          <input type="number" id="zoomLevel" style="margin-right: 20px" oninput="set_zoom(this)" value="100" max="9999" step="10">
           Tempo entre passos (ms):
-          <input
-            type="number"
-            id="delay"
-            style="margin-right: 20px"
-            value="100"
-            oninput="changeDelay(this);"
-            min="0"
-            max="10000"
-          />
+          <input type="number" id="delay" style="margin-right: 20px" value="100" oninput="changeDelay(this);" min="0" max="10000">
           <!-- Taxa de atualização: -->
-          <input
-            type="number"
-            id="IPF"
-            style="margin-right: 80px"
-            value="1"
-            oninput="changeIPS(this);"
-            min="1"
-            max="999"
-            hidden
-          />
-          <button
-            id="playButton"
-            onclick="playPause(this); get_totalSand()"
-            class="btn btn-default"
-            style="margin-right: 20px; font-weight: bold"
-          >
+          <input type="number" id="IPF" style="margin-right: 80px" value="1" oninput="changeIPS(this);" min="1" max="999" hidden="">
+          <button id="playButton" onclick="playPause(this); get_totalSand();" class="btn btn-default" style="margin-right: 20px; font-weight: bold">
             Iniciar
           </button>
           <!-- <button onclick="step()" style="margin-right:20px" class="btn btn-default">Passo</button> -->
@@ -84,7 +52,7 @@
         Pausa automática:
       </span>
       <label class="switch" style="position: absolute; top: 12px; right: 10px">
-        <input type="checkbox" id="pauseToggle" />
+        <input type="checkbox" id="pauseToggle">
         <span class="slider round"></span>
       </label>
 
@@ -93,12 +61,7 @@
         Exibir linhas:
       </span>
       <label class="switch" style="position: absolute; top: 32px; right: 10px">
-        <input
-          type="checkbox"
-          id="wireFrameToggle"
-          oninput="enableWireFrame(this);"
-          checked="false"
-        />
+        <input type="checkbox" id="wireFrameToggle" oninput="enableWireFrame(this);" checked="false">
         <span class="slider round"></span>
       </label>
     </header>
@@ -163,30 +126,22 @@
         <!--<form id="postCustom" enctype="multipart/form-data" action="/upload/image" method="post">
 					<input type="file" id="inputCustom" accept=".png,.jpg,.jpeg,.bmp" style="display:none;" />
 				</form>-->
-        <button
-          onclick="drawTiling()"
-          style="
+        <button onclick="drawTiling(); reset_number_of_steps();" style="
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 5px;
             display: table;
             font-weight: bold;
-          "
-          class="btn btn-default"
-        >
+          " class="btn btn-default">
           Criar Matriz
         </button>
-        <button
-          onclick="matriz_aleatoria()"
-          style="
+        <button onclick="matriz_aleatoria()" style="
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 5px;
             display: table;
             font-weight: bold;
-          "
-          class="btn btn-default"
-        >
+          " class="btn btn-default">
           Gerar Matriz Aleatória
         </button>
 
@@ -196,48 +151,24 @@
         <div id="paramHide">
           <span id="p_width" style="margin-left: 80px">
             Largura:
-            <input
-              type="number"
-              id="cW"
-              min="0"
-              value="100"
-              style="width: 50px"
-            />
+            <input type="number" id="cW" min="0" value="100" style="width: 50px">
           </span>
 
           <span id="p_height">
             &nbsp; &nbsp; Altura:
-            <input
-              type="number"
-              id="cH"
-              min="0"
-              value="100"
-              style="width: 50px" />
-            <br
-          /></span>
+            <input type="number" id="cH" min="0" value="100" style="width: 50px">
+            <br></span>
 
           <span id="p_size" style="display: none">
             Size :
-            <input
-              type="number"
-              id="size"
-              min="0"
-              value="20"
-              style="width: 50px" />
-            <br
-          /></span>
+            <input type="number" id="size" min="0" value="20" style="width: 50px">
+            <br></span>
 
           <!-- Penrose controls -->
           <span id="p_iterations" style="display: none">
             Iterations :
-            <input
-              type="number"
-              style="width: 50px"
-              id="penroseIt"
-              min="0"
-              value="4" />
-            <br
-          /></span>
+            <input type="number" style="width: 50px" id="penroseIt" min="0" value="4">
+            <br></span>
         </div>
       </div>
       <!-- Main controls  -->
@@ -253,28 +184,12 @@
         </select>
         <div id="maskMouseRepeat" style="display: inline">
           &nbsp;&nbsp;vezes&nbsp;&nbsp;
-          <input
-            type="number"
-            id="mouseOperationRepeat"
-            value="1"
-            min="1"
-            max="4"
-            style="width: 70px"
-          />
+          <input type="number" id="mouseOperationRepeat" value="1" min="1" max="4" style="width: 70px">
         </div>
-        <br /><br />
+        <br><br>
         <div style="display: flex">
           Raio do mouse :
-          <input
-            type="range"
-            min="1"
-            max="8"
-            value="1"
-            step="1"
-            id="brushRange"
-            style="width: 150px; margin-left: 10px"
-            list="steplist"
-          />
+          <input type="range" min="1" max="8" value="1" step="1" id="brushRange" style="width: 150px; margin-left: 10px" list="steplist">
           <datalist id="steplist">
             <option>1</option>
             <option>2</option>
@@ -329,63 +244,45 @@
       <!-- ############################################################ Stabilization -->
       <div class="controlGroup">
         <p class="groupTitle">Processos da pilha de areia</p>
-        <button
-          onclick="step()"
-          class="btn btn-default"
-          style="
+        <button onclick="step()" class="btn btn-default" style="
             margin-top: 10px;
             display: table;
             width: -webkit-fill-available;
-          "
-        >
+          ">
           Passo
         </button>
         <!-- &nbsp;&nbsp;vezes&nbsp;&nbsp;
 			<input type="number" id="stepsRepeat" value="1" min="1" max="999999" style="width: 70px;" /> -->
-        <br />
+        <br>
         <span style="position: block; top: 10px; right: 50px">
           Adionar grão aleatório automático:
         </span>
         <label class="switch" style="position: block; top: 2px; right: 0px">
-          <input type="checkbox" id="addRadomToggle" />
+          <input type="checkbox" id="addRadomToggle">
           <span class="slider round"></span>
         </label>
-        <br />
-        <div
-          style="
+        <br>
+        <div style="
             margin-left: auto;
             margin-right: auto;
             margin-top: 10px;
             display: grid;
-          "
-        >
-          <button
-            onclick="addRadomSand()"
-            class="btn btn-default"
-            style="display: table; width: -webkit-fill-available"
-          >
+          ">
+          <button onclick="addRadomSand()" class="btn btn-default" style="display: table; width: -webkit-fill-available">
             Adicionar grão aleatório
           </button>
-          <button
-            onclick="clearTiling(), reset_number_of_steps()"
-            class="btn btn-default"
-            style="
+          <button onclick="clearTiling(), reset_number_of_steps()" class="btn btn-default" style="
               margin-top: 10px;
               display: table;
               width: -webkit-fill-available;
-            "
-          >
+            ">
             Limpar
           </button>
-          <button
-            onclick="stabTiling()"
-            class="btn btn-default"
-            style="
+          <button onclick="stabTiling()" class="btn btn-default" style="
               margin-top: 10px;
               display: table;
               width: -webkit-fill-available;
-            "
-          >
+            ">
             Estabilizar
           </button>
         </div>
@@ -419,11 +316,7 @@
       <!-- ############################################################ Misc Controls -->
       <div class="controlGroup">
         <p class="groupTitle">Controles diversos</p>
-        <button
-          id="colorButton"
-          style="margin-left: auto; margin-right: auto; display: block"
-          class="btn btn-default"
-        >
+        <button id="colorButton" style="margin-left: auto; margin-right: auto; display: block" class="btn btn-default">
           Alterar cores
         </button>
       </div>
@@ -526,7 +419,7 @@
       <div class="credits controlGroup">
         <p style="color: #293443">Créditos autores originais</p>
         <div>
-          <img src="./assets/css/cc-heart.png" style="height: 16px" />
+          <img src="./assets/css/cc-heart.png" style="height: 16px">
           <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>
         </div>
         <p style="color: #293443">Valentin Darrigo</p>
@@ -542,7 +435,7 @@
     <!-- ################################################################ Color picking window -->
     <div id="colors" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close">×</span>
       </div>
     </div>
 
@@ -550,43 +443,47 @@
     <div class="canvasDiv" id="canvasHolder"></div>
 
     <!-- ################################################################ JS Imports -->
-    <link rel="script" href="./assets/js/Utils/jquery.min.js" />
-    <link rel="script" href="./assets/js/app.js" />
-    <link rel="script" href="./assets/js/three.min.js" />
-    <link rel="script" href="./assets/js/OrthographicTrackballControls.js" />
-    <link rel="script" href="./assets/js/bootstrap.min.js" />
-    <link rel="script" href="./assets/js/earcut.js" />
-    <link rel="script" href="./assets/js/Geometry.js" />
-    <link rel="script" href="./assets/js/Matrix.js" />
-    <link rel="script" href="./assets/js/Combinatorics.js" />
-    <link rel="script" href="./assets/js/Tiling.js" />
-    <link rel="script" href="./assets/js/Combinatorics.js" />
-    <link rel="script" href="./assets/js/ImportExport.js" />
-    <link rel="script" href="./assets/js/Stats.js" />
-    <link rel="script" href="./assets/js/Harmonics.js" />
-    <link rel="script" href="./assets/js/Roundness.js" />
-    <link rel="script" href="./assets/js/Batch_processings.js" />
-    <link
-      rel="script"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"
-    />
-    <!--<script src="src/assets/js/Utils/jquery.min.js"></script>
-    <script src="src/assets/js/Utils/three.min.js"></script>
-    <script src="src/assets/js/Utils/OrthographicTrackballControls.js"></script>
-    <script src="src/assets/js/Utils/bootstrap.min.js"></script>
-    <script src="src/assets/js/Utils/earcut.js"></script>
-    <script src="src/assets/js/Utils/Geometry.js"></script>
-    <script src="src/assets/js/Utils/Matrix.js"></script>
-    <script src="src/assets/js/Utils/Combinatorics.js"></script>
-    <script src="assets/js/Tiling.js"></script>
-    <script src="src/assets/js/Features/ChangeDisplay.js"></script>
-    <script src="src/assets/js/Features/ImportExport.js"></script>
+    <script src="./assets/js/Utils/jquery.min.js"></script>
+    <script src="./assets/js/Utils/three.min.js"></script>
+    <script src="./assets/js/Utils/OrthographicTrackballControls.js"></script>
+    <script src="./assets/js/Utils/bootstrap.min.js"></script>
+    <script src="./assets/js/Utils/earcut.js"></script>
+    <script src="./assets/js/Utils/Geometry.js"></script>
+    <script src="./assets/js/Utils/Matrix.js"></script>
+    <script src="./assets/js/Utils/Combinatorics.js"></script>
+    <!-- <script src="assets/js/Utils/gpu-browser.min.js"></script> -->
+
+    <script src="./assets/js/Tiling.js"></script>
+
+    <script src="./assets/js/TilingPresets/HexTiling.js"></script>
+    <script src="./assets/js/TilingPresets/TriTiling.js"></script>
+    <script src="./assets/js/TilingPresets/PenroseTiling.js"></script>
+    <script src="./assets/js/TilingPresets/CustomSquareTiling.js"></script>
+    <script src="./assets/js/TilingPresets/SquareTiling.js"></script>
+    <script src="./assets/js/TilingPresets/Pythagorean.js"></script>
+    <script src="./assets/js/TilingPresets/TruncSquare.js"></script>
+    <script src="./assets/js/TilingPresets/CairoPentagonal.js"></script>
+    <script src="./assets/js/TilingPresets/PenroseP0.js"></script>
+
+    <script src="./assets/js/TilingPresets/SubstitutionAPI.js"></script>
+    <script src="./assets/js/TilingPresets/PenroseP2Substitution.js"></script>
+    <script src="./assets/js/TilingPresets/PenroseP3Substitution.js"></script>
+    <script src="./assets/js/TilingPresets/AmmannBeenkerA5Substitution.js"></script>
+    <script src="./assets/js/TilingPresets/BirdsBeesSubstitution.js"></script>
+    <script src="./assets/js/TilingPresets/TriangleSubstitution.js"></script>
+
+    <script src="./assets/js/TilingPresets/CutAndProjectViaMultigrid.js"></script>
+
+    <script src="./assets/js/Features/ChangeDisplay.js"></script>
+    <script src="./assets/js/Features/ImportExport.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script src="src/assets/js/Features/Stats.js"></script>
-    <script src="src/assets/js/Features/Harmonics.js"></script>
-    <script src="src/assets/js/Features/Roundness.js"></script>
-    <script src="src/assets/js/Features/Batch_processings.js"></script>
-    <script src="src/assets/js/app.js"></script>-->
-  </body>
-  <!-- ############################################################ End. -->
-</html>
+    <script src="./assets/js/Features/Stats.js"></script>
+    <script src="./assets/js/Features/Harmonics.js"></script>
+    <script src="./assets/js/Features/Roundness.js"></script>
+    <script src="./assets/js/Features/Batch_processings.js"></script>
+
+    <script src="./assets/js/app.js"></script>
+  <script src="runtime-es2017.3d22df4d5bec63bbb31f.js" type="module"></script><script src="runtime-es5.3d22df4d5bec63bbb31f.js" nomodule defer></script><script src="polyfills-es5.cbb8dd6c0b4137302b4a.js" nomodule defer></script><script src="polyfills-es2017.2f99be6f36e4debaf8ec.js" type="module"></script><script src="main-es2017.28916578c59821cf461b.js" type="module"></script><script src="main-es5.28916578c59821cf461b.js" nomodule defer></script>
+  
+
+</body><!-- ############################################################ End. --></html>
