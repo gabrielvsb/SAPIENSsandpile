@@ -465,6 +465,11 @@ function enableWireFrame(elem) {
 //		App.js [ 1.0 ]
 // ------------------------------------------------
 function drawTiling() {
+	//Evita que crie uma matriz sem tamanho selecionado
+	if(document.getElementById('tamanho').value === 'default'){
+		alert('Selecione um tamanho para a matriz!');
+		return false;
+	}
 
 	while (app.scene.children.length > 0) {
 		app.scene.remove(app.scene.children[0]);
@@ -735,6 +740,11 @@ var previousTile = -1;
 var totalSand = 0;
 
 function matriz_aleatoria() {
+	//Evita que crie uma matriz sem tamanho selecionado
+	if(document.getElementById('tamanho').value === 'default'){
+		alert('Selecione um tamanho para a matriz!');
+		return false;
+	}
 	drawTiling();
 	cW = document.getElementById("cW").value;
 	cH = document.getElementById("cH").value;
@@ -747,6 +757,39 @@ function matriz_aleatoria() {
 		i++;
 	}
 	reset_number_of_steps();
+}
+
+function selecionarTamanho(elem){
+	let tamanho = elem.value;
+	let largura = 0;
+	let altura = 0;
+	let display = '';
+	switch (tamanho){
+		case 'pequena':
+			largura = altura = 10;
+			display = 'none';
+			break;
+		case 'media':
+			largura = altura = 50;
+			display = 'none';
+			break;
+		case 'grande':
+			largura = altura = 100;
+			display = 'none';
+			break;
+		case 'personalizado':
+			largura = altura = 10;
+			display = 'flex';
+			break;
+		default:
+			largura = altura = 10;
+			display = 'none';
+			break;
+	}
+	document.getElementById("cW").value = largura;
+	document.getElementById("cH").value = altura;
+	document.getElementById('div-inputs-tamanho').style.display = display;
+
 }
 
 function get_totalSand() {
