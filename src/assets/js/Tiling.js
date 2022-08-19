@@ -410,13 +410,15 @@ class Tiling{
 				
 				if(tile.sand > tile.limit){
 					// ready to topple - flashy colors
-					var flashy = ["#010103"];
+					//var flashy = ["#010103"];
+					var flashy = ["#b50404"];
 					var flashyIndex = Math.min(tile.sand-tile.limit, flashy.length-1);
 					color = new THREE.Color(flashy[flashyIndex]);
 				} else {
 					// stable, grey
 					// var greyScale = 1.0 - tile.sand / tile.limit;
-					var colorDefaultList = ["#ffffff", "#ff0000", "#FFFF00", "#00FF00", "#0000FF"];
+					//var colorDefaultList = ["#ffffff", "#ff0000", "#FFFF00", "#00FF00", "#0000FF"];
+					var colorDefaultList = ["#5bdea3", "#5bd3de", "#deb25b", "#f78686", "#de5b5b"];
 					var newCmap = [];
 						for(var i = 0; i < colorDefaultList.length; i++){
 							var col = new THREE.Color(0x000000);
