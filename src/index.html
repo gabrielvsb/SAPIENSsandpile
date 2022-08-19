@@ -113,61 +113,7 @@
       <!-- ############################################################ Main Controls -->
       <div id="main controls" class="controlGroup">
         <p class="groupTitle">Seleção de matriz</p>
-        <!-- <select id="TilingSelect" onchange="hideParams()">
-				<optgroup label="Regular">
-					<option value="sqTiling">Square Tiling</option>
-					<option value="hexTiling">Hexagonal Tiling</option>
-					<option value="triTiling">Triangular Tiling</option>
-				</optgroup>
-				<optgroup label="Cut and Project (via Mutligrid)">
-					<option value="PenroseCutandproject">Penrose P3 (rhomb)</option>
-					<option value="AmmannBeenkerCutandproject">Ammann-Beenker</option>
-					<option value="TwelveFoldCutandproject">12-fold</option>
-					<option value="GoldenOctogonalCutandproject">Golden octogonal (random shift)</option>
-					<option value="RauzyCutandproject">Rauzy (random shift)</option>
-				</optgroup>
-				<optgroup label="Substitution: Penrose P2 (kite-dart)">
-					<option value="P2sunbysubst">Sun</option>
-					<option value="P2starbysubst">Star</option>
-					<option value="HKKDPenrose">Half-kite (from Robinson triangles)</option>
-					<option value="HDKDPenrose">Half-dart (from Robinson triangles)</option>
-					<option value="SunKDPenrose">Sun (from Robinson triangles)</option>
-					<option value="StarKDPenrose">Star (from Robinson triangles)</option>
-				</optgroup>
-				<optgroup label="Substitution: Penrose P3 (rhomb)">
-					<option value="P3sunbysubst">Sun</option>
-					<option value="P3star1bysubst">Star1</option>
-					<option value="P3star2bysubst">Star2</option>
-					<option value="HKRPenrose">Half-kite (from Robinson triangles)</option>
-					<option value="HDRPenrose">Half-dart (from Robinson triangles)</option>
-					<option value="SunRPenrose">Sun (from Robinson triangles)</option>
-					<option value="StarRPenrose">Star (from Robinson triangles)</option>
-				</optgroup>
-				<optgroup label="Substitution: Penrose P0 (Robinson triangles)">
-					<option value="penrose0">Half-kite</option>
-				</optgroup>
-				<optgroup label="Substitution: Others">
-					<option value="A5bysubst">Ammann-Beenker</option>
-					<option value="BB1bysubst">Birds and Bees 1</option>
-					<option value="TriangleIncenter">Triangle Incenter</option>
-				</optgroup>
-				<optgroup label="Symmetry Free">
-					<option value="sqD2">D2 Square</option>
-					<option value="sqD4">D4 Square</option>
-				</optgroup>
-				<optgroup label="Misc.">
-					<option value="sqTilingMoore">Square Moore</option>
-					<option value="sqTilingCircle">Square Tiling croped to circle</option>
-					<option value="pythagorean">Pythagorean</option>
-					<option value="truncSq">Truncated Square</option>
-					<option value="cairoPenta">Cairo Pentagonal</option>
-				</optgroup>
 
-			</select> -->
-
-        <!--<form id="postCustom" enctype="multipart/form-data" action="/upload/image" method="post">
-					<input type="file" id="inputCustom" accept=".png,.jpg,.jpeg,.bmp" style="display:none;" />
-				</form>-->
         <button
           onclick="drawTiling(); reset_number_of_steps();"
           style="
@@ -175,7 +121,8 @@
             margin-right: auto;
             margin-bottom: 5px;
             display: table;
-            font-weight: bold;
+            background-color: #6bba9e;
+            color: #ffffff;
           "
           class="btn btn-default"
         >
@@ -188,7 +135,8 @@
             margin-right: auto;
             margin-bottom: 5px;
             display: table;
-            font-weight: bold;
+            background-color: #6bba9e;
+            color: #ffffff;
           "
           class="btn btn-default"
         >
@@ -578,10 +526,13 @@
     <div class="canvasDiv" id="canvasHolder"></div>
 
     <!-- ################################################################ JS Imports -->
-    <script src="./assets/js/Utils/jquery.min.js"></script>
+<!--    <script src="./assets/js/Utils/jquery.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="./assets/js/Utils/three.min.js"></script>
     <script src="./assets/js/Utils/OrthographicTrackballControls.js"></script>
-    <script src="./assets/js/Utils/bootstrap.min.js"></script>
+<!--    <script src="./assets/js/Utils/bootstrap.min.js"></script>-->
     <script src="./assets/js/Utils/earcut.js"></script>
     <script src="./assets/js/Utils/Geometry.js"></script>
     <script src="./assets/js/Utils/Matrix.js"></script>
