@@ -154,4 +154,33 @@ input:checked + .slider:before {
   position: absolute;
   z-index: 1;
 }
+/*--------CUSTOM--------------*/
 
+.input-base{
+    border-radius: .375rem;
+    border: 1px solid #ced4da;
+    padding: .375rem .75rem;
+}
+
+#zoomLevel{
+    width: 75px;
+    margin-right: 20px
+}
+
+#delay{
+    width: 75px;
+    margin-right: 20px
+}
+
+#playButton{
+    background-color: #336fa1;
+    color: white;
+}
+
+.navegacao{
+    background-color: #b5d4e0;
+}
+
+input:checked + .slider{
+    background-color: #6bba9e;!important;
+}

@@ -19,8 +19,8 @@
   <body>
     <app-root></app-root>
     <!-- ################################################################ UPPER BAR -->
-    <header>
-      <div style="margin-bottom: -12px">
+    <header class="navegacao">
+      <div style="margin-bottom: -12px; margin-left: 10px" >
         <span>SAndPIle ENvironment Simulator</span>
       </div>
       <div>
@@ -31,28 +31,27 @@
             font-size: 35px;
             font-weight: bold;
           "
-          >SAPIENS</span
-        >
+          >SAPIENS</span>
         <div style="position: absolute; top: 14px; margin-left: 24%">
           Zoom (%):
           <input
             type="number"
             id="zoomLevel"
-            style="margin-right: 20px; width: 60px"
             oninput="set_zoom(this)"
             value="100"
             max="9999"
             step="10"
+            class="input-base"
           />
           Tempo entre passos (ms):
           <input
             type="number"
             id="delay"
-            style="margin-right: 20px"
             value="250"
             oninput="changeDelay(this);"
             min="0"
             max="10000"
+            class="input-base"
           />
           <!-- Taxa de atualização: -->
           <input
