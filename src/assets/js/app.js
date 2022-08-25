@@ -413,11 +413,11 @@ function playPause(elem) {
 	if (play) {
 		play = false;
 		elem.innerHTML = "Iniciar";
-		elem.style.backgroundColor = "#FFFFFF";
+		elem.style.backgroundColor = "#4464AD";
 	} else {
 		play = true;
 		elem.innerHTML = "Pausar";
-		elem.style.backgroundColor = "#CCCCCC";
+		elem.style.backgroundColor = "#6ab99d";
 	}
 }
 
@@ -768,14 +768,17 @@ function selecionarTamanho(elem){
 		case 'pequena':
 			largura = altura = 10;
 			display = 'none';
+			app.camera.zoom = 10.2; // Equivale a 1020% de zoom
 			break;
 		case 'media':
 			largura = altura = 50;
 			display = 'none';
+			app.camera.zoom = 3.5; // Equivale a 350% de zoom
 			break;
 		case 'grande':
 			largura = altura = 100;
 			display = 'none';
+			app.camera.zoom = 2; // Equivale a 200% de zoom
 			break;
 		case 'personalizado':
 			largura = altura = 10;

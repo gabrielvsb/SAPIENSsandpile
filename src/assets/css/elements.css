@@ -173,14 +173,52 @@ input:checked + .slider:before {
 }
 
 #playButton{
-    background-color: #336fa1;
+    background-color: #4464AD;
     color: white;
+    margin-right: 20px;
+    font-weight: bold
 }
 
 .navegacao{
-    background-color: #b5d4e0;
+    background-color: #e8d3b7;
 }
 
 input:checked + .slider{
     background-color: #6bba9e;!important;
+}
+
+#tamanho{
+    width: 280px;
+}
+
+#btn-criar-matriz{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    display: table;
+    background-color: #ffffff;
+    color: #101010;
+    border-color: #2f2f2f;
+}
+
+#btn-criar-matriz:hover{
+    background-color: #4464AD;
+    color: white;
+    border-color: #c7ddef;
+}
+
+#btn-matriz-aleatoria{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    display: table;
+    background-color: #ffffff;
+    color: #101010;
+    border-color: #101010;
+}
+
+#btn-matriz-aleatoria:hover{
+    background-color: #4464AD;
+    color: white;
+    border-color: #c7ddef;
 }

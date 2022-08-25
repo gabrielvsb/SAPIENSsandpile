@@ -68,7 +68,6 @@
             id="playButton"
             onclick="playPause(this); get_totalSand();"
             class="btn btn-default"
-            style="margin-right: 20px; font-weight: bold"
           >
             Iniciar
           </button>
@@ -115,28 +114,14 @@
 
         <button
           onclick="drawTiling(); reset_number_of_steps();"
-          style="
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 5px;
-            display: table;
-            background-color: #6bba9e;
-            color: #ffffff;
-          "
+          id="btn-criar-matriz"
           class="btn btn-default"
         >
           Criar Matriz
         </button>
         <button
           onclick="matriz_aleatoria()"
-          style="
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 5px;
-            display: table;
-            background-color: #6bba9e;
-            color: #ffffff;
-          "
+          id="btn-matriz-aleatoria"
           class="btn btn-default"
         >
           Gerar Matriz Aleatória
@@ -148,7 +133,7 @@
         <div id="paramHide">
           <div class="row">
             <div class="col d-flex justify-content-center">
-              <select class="form-select" oninput="selecionarTamanho(this)" name="tamanho" id="tamanho"  style="width: 280px">
+              <select class="form-select" oninput="selecionarTamanho(this)" name="tamanho" id="tamanho">
                 <option value="default" selected>Selecione o tamanho da matriz</option>
                 <option value="pequena">Pequena</option>
                 <option value="media">Média</option>
