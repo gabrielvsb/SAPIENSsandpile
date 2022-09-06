@@ -400,6 +400,8 @@ async function playWithDelay() {
 		while (true) {
 			if (play) {
 				iterateTiling();
+			}else{
+				break;
 			}
 			await sleep(delay);
 		}
@@ -416,6 +418,7 @@ function playPause(elem) {
 		elem.style.backgroundColor = "#4464AD";
 	} else {
 		play = true;
+		playWithDelay();
 		elem.innerHTML = "Pausar";
 		elem.style.backgroundColor = "#6ab99d";
 	}
@@ -509,7 +512,7 @@ function drawTiling() {
 
 	enableWireFrame(document.getElementById("wireFrameToggle"));
 
-	playWithDelay();
+	//playWithDelay();
 
 	var render = function () {
 		requestAnimationFrame(render);
@@ -745,6 +748,8 @@ function matriz_aleatoria() {
 		alert('Selecione um tamanho para a matriz!');
 		return false;
 	}
+	delay = document.getElementById("delay").value;
+
 	drawTiling();
 	cW = document.getElementById("cW").value;
 	cH = document.getElementById("cH").value;
