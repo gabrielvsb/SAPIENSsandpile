@@ -192,8 +192,8 @@ function iterateTiling() {
 	if (document.getElementById("pauseToggle").checked && is_stable)
 		playPause(document.getElementById("playButton"));
 	currentTiling.colorTiles();
-	if (document.getElementById("addRadomToggle").checked)
-			addRadomSand();
+	// if (document.getElementById("addRadomToggle").checked)
+	// 		addRadomSand();
 	// if (selectedTile)
 	// 	tileInfo.innerHTML = "Tile index : " + selectedTile + "<br>Sand : " + currentTiling.tiles[selectedTile].sand;
 
@@ -416,6 +416,7 @@ function playPause(elem) {
 		play = false;
 		elem.innerHTML = "Iniciar";
 		elem.style.backgroundColor = "#4464AD";
+		console.log(mostrarQuantidadeTotaisPerdidas());
 	} else {
 		play = true;
 		playWithDelay();
@@ -762,6 +763,8 @@ function matriz_aleatoria() {
 		i++;
 	}
 	reset_number_of_steps();
+	// qtdGraosPerdidos = 0
+	// myChartGraosPerdidos.clear();
 }
 
 function selecionarTamanho(elem){
@@ -809,4 +812,12 @@ function get_totalSand() {
 	}
 	totalSand = qtd;
 	return totalSand;
+}
+
+function mostrarQuantidadeTotaisPerdidas(){
+	let soma = 0;
+	for (var i = 0; i < listaQtdGraosPerdidos.length; i++) {
+		soma += listaQtdGraosPerdidos[i];
+	}
+	return soma;
 }

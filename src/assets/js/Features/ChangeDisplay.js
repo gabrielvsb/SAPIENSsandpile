@@ -182,7 +182,8 @@ btn.onclick = function() {
 				default_para = null;
 			}
 		}
-		var default_array = ["#ffffff", "#99aed4", "#345da9", "#192f56", "#010103"];
+		// var default_array = ["#ffffff", "#99aed4", "#345da9", "#192f56", "#010103"];
+		var default_array = ["#CFCCD6", "#52be8d", "#366ba8", "#f6c85f", "#DB2B39"];
 		var black3_array = ["#ffffff", "#7B68EE", "#9370DB", "#8A2BE2", "#4B0082"];
 		var grey_array = ["#ffffff", "#dddddd", "#bbbbbb", "#999999", "#777777"];
 		var lava_array = ["#cccccc", "#888888", "#444444", "#553333", "#772222"];
@@ -293,7 +294,7 @@ btn.onclick = function() {
 	modal.children[0].appendChild(validate);
 	modal.children[0].appendChild(preset_span);
     modal.style.display = "block";
-	
+
 	document.getElementById("preset_choice").value = current_preset;
 	preset_choice.oninput();
 }

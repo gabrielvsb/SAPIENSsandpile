@@ -233,6 +233,7 @@ class Tiling{
 
 	qtdAvalanches = 0
 	qtdGraosPerdidos = 0
+	qtdTotaisGraosPerdidos = 0
 	iterate(){
 		// Topple any tile that has more than the limit of sand
 		var is_stable = true;

@@ -39,9 +39,6 @@ nav{
   border-bottom: 0;
 }
 
-.controlGroup:last-child {
-  border-bottom: 1px solid #293443;
-}
 
 .credits{
 	padding: 10px;
@@ -199,7 +196,10 @@ input:checked + .slider{
     background-color: #ffffff;
     color: #101010;
     border-color: #2f2f2f;
+    width: 250px;
 }
+
+
 
 #btn-criar-matriz:hover{
     background-color: #4464AD;
@@ -215,10 +215,136 @@ input:checked + .slider{
     background-color: #ffffff;
     color: #101010;
     border-color: #101010;
+    width: 250px;
 }
 
 #btn-matriz-aleatoria:hover{
     background-color: #4464AD;
     color: white;
     border-color: #c7ddef;
+}
+
+#btn-passo{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    display: table;
+    background-color: #ffffff;
+    color: #101010;
+    border-color: #2f2f2f;
+    width: 250px;
+}
+
+#btn-passo:hover{
+    background-color: #4464AD;
+    color: white;
+    border-color: #c7ddef;
+}
+
+#btn-adicionar-grao{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    display: table;
+    background-color: #ffffff;
+    color: #101010;
+    border-color: #2f2f2f;
+    width: 250px;
+}
+
+#btn-adicionar-grao:hover{
+    background-color: #4464AD;
+    color: white;
+    border-color: #c7ddef;
+}
+
+#btn-limpar{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    display: table;
+    background-color: #ffffff;
+    color: #101010;
+    border-color: #2f2f2f;
+    width: 250px;
+}
+
+#btn-limpar:hover{
+    background-color: #4464AD;
+    color: white;
+    border-color: #c7ddef;
+}
+
+#btn-estabilizar{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    display: table;
+    background-color: #ffffff;
+    color: #101010;
+    border-color: #2f2f2f;
+    width: 250px;
+}
+
+#btn-estabilizar:hover{
+    background-color: #4464AD;
+    color: white;
+    border-color: #c7ddef;
+}
+
+#colorButton{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    display: table;
+    background-color: #ffffff;
+    color: #101010;
+    border-color: #2f2f2f;
+    width: 250px;
+}
+
+#colorButton:hover{
+    background-color: #4464AD;
+    color: white;
+    border-color: #c7ddef;
+}
+
+.creditos{
+    text-decoration: none;
+    color: #1c1c1c;
+}
+.creditos:visited{
+    text-decoration: none;
+}
+
+.creditos:hover{
+    text-decoration: none;
+    color: #4464ac;
+}
+
+.creditos:not(.collapsed) .rotate-icon{
+    transform: rotate(180deg);
+}
+#collapseCreditos{
+    margin-top: 15px;
+}
+
+.link-credito{
+    text-decoration: none;
+    color: #1c1c1c;
+}
+
+.autores{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.autores p{
+    color: #293443;
+    margin-bottom: 5px;
+}
+
+.autores i{
+    font-size: 12px;
+    color: #ffba25;
 }

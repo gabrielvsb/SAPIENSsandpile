@@ -14,6 +14,7 @@
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a91a27e46f.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -224,7 +225,8 @@
           </div>
 
         <div style="display: flex; margin-top: 10px">
-          Raio do mouse :
+
+          <label for="brushRange" class="form-label">Raio do mouse</label>
           <input
             type="range"
             min="1"
@@ -232,8 +234,9 @@
             value="1"
             step="1"
             id="brushRange"
-            style="width: 150px; margin-left: 10px"
+            style="width: 300px; margin-left: 10px"
             list="steplist"
+            class="form-range"
           />
           <datalist id="steplist">
             <option>1</option>
@@ -289,63 +292,33 @@
       <!-- ############################################################ Stabilization -->
       <div class="controlGroup">
         <p class="groupTitle">Processos da pilha de areia</p>
-        <button
-          onclick="step()"
-          class="btn btn-default"
-          style="
-            margin-top: 10px;
-            display: table;
-            width: -webkit-fill-available;
-          "
-        >
-          Passo
-        </button>
+        <button onclick="step()" class="btn btn-default" id="btn-passo" >Passo</button>
         <!-- &nbsp;&nbsp;vezes&nbsp;&nbsp;
 			<input type="number" id="stepsRepeat" value="1" min="1" max="999999" style="width: 70px;" /> -->
-        <br />
-        <span style="position: block; top: 10px; right: 50px">
-          Adionar grão aleatório automático:
-        </span>
-        <label class="switch" style="position: block; top: 2px; right: 0px">
-          <input type="checkbox" id="addRadomToggle" />
-          <span class="slider round"></span>
-        </label>
-        <br />
-        <div
-          style="
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 10px;
-            display: grid;
-          "
-        >
-          <button
-            onclick="addRadomSand()"
-            class="btn btn-default"
-            style="display: table; width: -webkit-fill-available"
-          >
+<!--        <br />-->
+<!--        <span style="position: block; top: 10px; right: 50px">-->
+<!--          Adionar grão aleatório automático:-->
+<!--        </span>-->
+<!--        <label class="switch" style="position: block; top: 2px; right: 0px">-->
+<!--          <input type="checkbox" id="addRadomToggle" />-->
+<!--          <span class="slider round"></span>-->
+<!--        </label>-->
+<!--        <br />-->
+<!--        <div-->
+<!--          style="-->
+<!--            margin-left: auto;-->
+<!--            margin-right: auto;-->
+<!--            margin-top: 10px;-->
+<!--            display: grid;-->
+<!--          "-->
+<!--        >-->
+          <button onclick="addRadomSand()" class="btn btn-default" id="btn-adicionar-grao">
             Adicionar grão aleatório
           </button>
-          <button
-            onclick="clearTiling(), reset_number_of_steps()"
-            class="btn btn-default"
-            style="
-              margin-top: 10px;
-              display: table;
-              width: -webkit-fill-available;
-            "
-          >
+          <button onclick="clearTiling(), reset_number_of_steps()" class="btn btn-default" id="btn-limpar">
             Limpar
           </button>
-          <button
-            onclick="stabTiling()"
-            class="btn btn-default"
-            style="
-              margin-top: 10px;
-              display: table;
-              width: -webkit-fill-available;
-            "
-          >
+          <button onclick="stabTiling()" class="btn btn-default" id="btn-estabilizar">
             Estabilizar
           </button>
         </div>
@@ -484,24 +457,40 @@
 
       <!-- ############################################################ Credits -->
       <div class="credits controlGroup">
-        <p style="color: #293443">Créditos autores originais</p>
-        <div>
-          <img src="./assets/css/cc-heart.png" style="height: 16px" />
-          <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>
+
+        <a data-toggle="collapse" class="creditos collapsed" href="#collapseCreditos" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Créditos aos autores originais
+          <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
+        </a>
+        <div class="collapse" id="collapseCreditos">
+
+          <div class="autores">
+            <p><i class="fas fa-star"></i> Valentin Darrigo</p>
+            <p><i class="fas fa-star"></i> Jeremy Fersula</p>
+            <p><i class="fas fa-star"></i> Kevin Perrot</p>
+          </div>
+          <div>
+            <a href="https://creativecommons.org/licenses/by/4.0/" class="link-credito">
+              <i class="fab fa-creative-commons"></i> CC-BY
+            </a>
+          </div>
+          <a href="https://github.com/huacayacauh/JS-Sandpile/wiki" class="link-credito">
+            <i class="fab fa-wikipedia-w"></i> Wiki
+          </a>
+          <br>
+          <a href="https://github.com/huacayacauh/JS-Sandpile/" class="link-credito">
+            <i class="fab fa-github"></i> Código original
+          </a>
         </div>
-        <p style="color: #293443">Valentin Darrigo</p>
-        <p style="color: #293443">Jeremy Fersula</p>
-        <p style="color: #293443">Kevin Perrot</p>
-        See the
-        <a href="https://github.com/huacayacauh/JS-Sandpile/wiki">wiki</a> and
-        <a href="https://github.com/huacayacauh/JS-Sandpile/">code</a> on github
+
       </div>
+
     </nav>
     <!-- ######################################################### End of Control bar -->
 
     <!-- ################################################################ Color picking window -->
     <div id="colors" class="modal">
-      <div class="modal-content">
+      <div class="modal-content" style="width: 550px">
         <span class="close">&times;</span>
       </div>
     </div>
