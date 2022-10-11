@@ -110,7 +110,9 @@ btn.onclick = function() {
 	addColor.style = "bottom:20px;right:100px;position:absolute;";
 	addColor.onclick = function() {
 		var para = document.createElement("p");
-		var node = document.createTextNode("Cor: " + colorTotal);
+		let auxColorTotal = colorTotal;
+		let texto = colorTotal === 4 ? 'Avalanche' : auxColorTotal + 1;
+		var node = document.createTextNode("Cor: " + texto);
 		colorTotal ++;
 		
 		var colElement = document.createElement("input");

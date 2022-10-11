@@ -231,15 +231,15 @@ class Tiling{
 	// 	[ 2.2 ] 	Apply sandpile steps
 	// ------------------------------------------------
 
-	qtdAvalanches = 0
+	// qtdAvalanches = 0
 	qtdGraosPerdidos = 0
-	qtdTotaisGraosPerdidos = 0
 	iterate(){
 		// Topple any tile that has more than the limit of sand
 		var is_stable = true;
 		for(var i=0; i<this.tiles.length; i++){
 			this.tiles[i].prevSand = this.tiles[i].sand;
 		}
+		this.qtdAvalanches = 0;
 		for(var i=0; i<this.tiles.length; i++){
 			var til = this.tiles[i];
 			if(til.prevSand >= til.limit){
@@ -271,9 +271,9 @@ class Tiling{
 	// ------------------------------------------------
 	// 	[ 2.3 ] 	Basic operation functions
 	// ------------------------------------------------
-	add(id, amount){
+	add(id, amount, limit=4){
 		///console.log('Qtd de grãos antes: ',this.tiles[id].sand)
-		if (this.tiles[id].sand < 4){
+		if (this.tiles[id].sand < limit){
 			this.tiles[id].sand += amount;
 			this.colorTile(id);
 			///console.log('Qtd de grãos depois: ',this.tiles[id].sand)
@@ -294,10 +294,10 @@ class Tiling{
 		this.colorTile(id);
 	}
 	
-	addRandom(amount){
+	addRandom(amount, limitSand=4){
 		for(var j = 0; j<amount; j++){
 			var chosen = Math.floor(this.tiles.length * Math.random());
-			this.add(chosen, 1);
+			this.add(chosen, 1, limitSand);
 
 		}
 	}

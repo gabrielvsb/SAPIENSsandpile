@@ -225,14 +225,9 @@ input:checked + .slider{
 }
 
 #btn-passo{
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5px;
-    display: table;
-    background-color: #ffffff;
-    color: #101010;
-    border-color: #2f2f2f;
-    width: 250px;
+    background-color: #4464AD;
+    color: white;
+    font-weight: bold
 }
 
 #btn-passo:hover{

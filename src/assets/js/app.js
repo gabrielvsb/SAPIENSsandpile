@@ -151,6 +151,7 @@ function increment_number_of_steps() {
 function step() {
 	if (currentTiling) {
 		currentTiling.iterate();
+		console.log('teste');
 		increment_number_of_steps();
 		currentTiling.colorTiles();
 		get_totalSand();
@@ -189,8 +190,9 @@ function iterateTiling() {
 		}
 	}
 
-	if (document.getElementById("pauseToggle").checked && is_stable)
-		playPause(document.getElementById("playButton"));
+	// Comentado para evitar pausa automática
+	// if (document.getElementById("pauseToggle").checked && is_stable)
+	// 	playPause(document.getElementById("playButton"));
 	currentTiling.colorTiles();
 	// if (document.getElementById("addRadomToggle").checked)
 	// 		addRadomSand();
@@ -280,9 +282,9 @@ function complexOperationAdd() {
 }
 
 // feat_corringo_app
-function addRadomSand() {
+function addRadomSand(limitSand=4) {
 	var operationTimes = 1;
-	currentTiling.addRandom(operationTimes);
+	currentTiling.addRandom(operationTimes, limitSand);
 }
 
 function complexOperationSet() {
@@ -414,14 +416,15 @@ async function playWithDelay() {
 function playPause(elem) {
 	if (play) {
 		play = false;
-		elem.innerHTML = "Iniciar";
+		elem.innerHTML = "Automático";
 		elem.style.backgroundColor = "#4464AD";
-		console.log(mostrarQuantidadeTotaisPerdidas());
+		document.getElementById("btn-passo").style.display = 'inline';
 	} else {
 		play = true;
 		playWithDelay();
-		elem.innerHTML = "Pausar";
+		elem.innerHTML = "Manual";
 		elem.style.backgroundColor = "#6ab99d";
+		document.getElementById("btn-passo").style.display = 'none';
 	}
 }
 
@@ -749,22 +752,51 @@ function matriz_aleatoria() {
 		alert('Selecione um tamanho para a matriz!');
 		return false;
 	}
+
+	cW = document.getElementById("cW").value;
+	cH = document.getElementById("cH").value;
+
+	//Evita que matriz ultrapasse o limite
+	if(cW > 50 || cH > 50){
+		alert('Os tamanhos de largura e altura não podem passar de 50!');
+		return false;
+	}
+
+	if(cW <= 0 || cH <= 0){
+		alert('Os tamanhos de largura e altura não podem ser zero ou negativo!');
+		return false;
+	}
+
 	delay = document.getElementById("delay").value;
 
 	drawTiling();
-	cW = document.getElementById("cW").value;
-	cH = document.getElementById("cH").value;
+
 	i = 0;
 	randNum = Math.floor(Math.round(Math.random() * (cW * cH * 4)));
 	///randNum holds the random number of grains that the loop is going to add to the matrix
 
 	while ( i <= randNum ) {
-		addRadomSand();
+		addRadomSand(3);
 		i++;
 	}
 	reset_number_of_steps();
-	// qtdGraosPerdidos = 0
-	// myChartGraosPerdidos.clear();
+	limparGraficos();
+}
+
+function limparGraficos(){
+	//Quantidade de avalanches
+	myChartAvalanches.data.labels.length = 1;
+	myChartAvalanches.data.datasets.forEach((dataset) => {
+		dataset.data.length = 1;
+	});
+	myChartAvalanches.update();
+
+	//Quantidade de avalanches totais
+	myChartAvalanchesTotais.data.labels.length = 1;
+	myChartAvalanchesTotais.data.datasets.forEach((dataset) => {
+		dataset.data.length = 1;
+	});
+	myChartAvalanchesTotais.update();
 }
 
 function selecionarTamanho(elem){
@@ -774,19 +806,19 @@ function selecionarTamanho(elem){
 	let display = '';
 	switch (tamanho){
 		case 'pequena':
-			largura = altura = 10;
+			largura = altura = 5;
 			display = 'none';
-			app.camera.zoom = 10.2; // Equivale a 1020% de zoom
+			app.camera.zoom = 17.2; // Equivale a 1020% de zoom
 			break;
 		case 'media':
-			largura = altura = 50;
+			largura = altura = 20;
 			display = 'none';
-			app.camera.zoom = 3.5; // Equivale a 350% de zoom
+			app.camera.zoom = 9.5; // Equivale a 350% de zoom
 			break;
 		case 'grande':
-			largura = altura = 100;
+			largura = altura = 50;
 			display = 'none';
-			app.camera.zoom = 2; // Equivale a 200% de zoom
+			app.camera.zoom = 4.5; // Equivale a 200% de zoom
 			break;
 		case 'personalizado':
 			largura = altura = 10;
@@ -812,12 +844,4 @@ function get_totalSand() {
 	}
 	totalSand = qtd;
 	return totalSand;
-}
-
-function mostrarQuantidadeTotaisPerdidas(){
-	let soma = 0;
-	for (var i = 0; i < listaQtdGraosPerdidos.length; i++) {
-		soma += listaQtdGraosPerdidos[i];
-	}
-	return soma;
 }

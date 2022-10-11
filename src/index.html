@@ -70,9 +70,10 @@
             onclick="playPause(this); get_totalSand();"
             class="btn btn-default"
           >
-            Iniciar
+            Automático
           </button>
-          <!-- <button onclick="step()" style="margin-right:20px" class="btn btn-default">Passo</button> -->
+<!--          <button onclick="step()" class="btn btn-default" id="btn-passo" >Passo</button>-->
+           <button onclick="step()" id="btn-passo" class="btn btn-default">Passo</button>
           <span>Número de passos: </span>
           <span id="number_of_steps"></span>
         </div>
@@ -84,19 +85,19 @@
       <!-- <button id="stabilizeButton"  onclick="stabTiling()" class="btn btn-primary">Stabilize</button> -->
 
       <!-- Upper right alignment -->
-      <span style="position: absolute; top: 10px; right: 50px">
+      <span style="position: absolute; top: 30px; right: 50px; display: none">
         Pausa automática:
       </span>
-      <label class="switch" style="position: absolute; top: 12px; right: 10px">
-        <input type="checkbox" id="pauseToggle" checked />
+      <label class="switch" style="position: absolute; top: 32px; right: 10px; display: none">
+        <input type="checkbox" id="pauseToggle"/>
         <span class="slider round"></span>
       </label>
 
       <!-- Upper right alignment -->
-      <span style="position: absolute; top: 30px; right: 50px">
+      <span style="position: absolute; top: 10px; right: 50px;">
         Exibir linhas:
       </span>
-      <label class="switch" style="position: absolute; top: 32px; right: 10px">
+      <label class="switch" style="position: absolute; top: 12px; right: 10px;">
         <input
           type="checkbox"
           id="wireFrameToggle"
@@ -111,10 +112,10 @@
     <nav>
       <!-- ############################################################ Main Controls -->
       <div id="main controls" class="controlGroup">
-        <p class="groupTitle">Seleção de matriz</p>
+        <p class="groupTitle">Ações</p>
 
         <button
-          onclick="drawTiling(); reset_number_of_steps();"
+          onclick="drawTiling(); reset_number_of_steps(); limparGraficos();"
           id="btn-criar-matriz"
           class="btn btn-default"
         >
@@ -126,6 +127,9 @@
           class="btn btn-default"
         >
           Gerar Matriz Aleatória
+        </button>
+        <button onclick="addRadomSand()" class="btn btn-default" id="btn-adicionar-grao">
+          Adicionar grão aleatório
         </button>
 
         <!-- Tiling-specific controls -->
@@ -200,7 +204,7 @@
       <!-- Main controls  -->
 
       <!-- ############################################################ Mouse Controls -->
-      <div id="mouse controls" class="controlGroup">
+      <div id="mouse controls" class="controlGroup" style="display: none">
         <p class="groupTitle">Controles do mouse</p>
         <div class="row">
           <div class="col d-flex justify-content-center">
@@ -292,7 +296,7 @@
       <!-- ############################################################ Stabilization -->
       <div class="controlGroup">
         <p class="groupTitle">Processos da pilha de areia</p>
-        <button onclick="step()" class="btn btn-default" id="btn-passo" >Passo</button>
+<!--        <button onclick="step()" class="btn btn-default" id="btn-passo" >Passo</button>-->
         <!-- &nbsp;&nbsp;vezes&nbsp;&nbsp;
 			<input type="number" id="stepsRepeat" value="1" min="1" max="999999" style="width: 70px;" /> -->
 <!--        <br />-->
@@ -312,9 +316,9 @@
 <!--            display: grid;-->
 <!--          "-->
 <!--        >-->
-          <button onclick="addRadomSand()" class="btn btn-default" id="btn-adicionar-grao">
-            Adicionar grão aleatório
-          </button>
+<!--          <button onclick="addRadomSand()" class="btn btn-default" id="btn-adicionar-grao">-->
+<!--            Adicionar grão aleatório-->
+<!--          </button>-->
           <button onclick="clearTiling(), reset_number_of_steps()" class="btn btn-default" id="btn-limpar">
             Limpar
           </button>
@@ -362,7 +366,7 @@
       </div>
 
       <!-- ############################################################ Informations -->
-      <div class="controlGroup" style="height: auto; position: relative">
+      <div class="controlGroup" id="teste" style="height: auto; position: relative">
         <p class="groupTitle">Informações</p>
 
         <!-- <span id="tileInfo">Selected tile info</span>
@@ -374,8 +378,9 @@
         <p id="statsInfo"></p>
 
         <canvas id="myChartAvalanches"></canvas>
-        <canvas id="myChartGraosPerdidos"></canvas>
-        <canvas id="myChartGraosTotais"></canvas>
+<!--        <canvas id="myChartGraosPerdidos"></canvas>-->
+<!--        <canvas id="myChartGraosTotais"></canvas>-->
+        <canvas id="myChartAvalanchesTotais"></canvas>
 
         <!-- <button id="createStats" style="position:absolute; bottom:10px; left:10px;"
 				class="btn btn-default">Stabilization stats file</button> -->

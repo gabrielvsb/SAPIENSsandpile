@@ -67,10 +67,11 @@ function makeStatsFile(Tiling) {
 // 	[ 1.1 ] 	Chart
 //
 // ------------------------------------------------
-var listaQtdAvalanches = [];
+var listaQtdAvalanches = [0];
 var listaQtdGraosPerdidos = [];
 var listaNumberOfSteps = [0];
 var listaQtdGraosTotais = [];
+let listaQtdAvalanchesTotais = [0];
 
 const myChartAvalanches = new Chart(document.getElementById('myChartAvalanches'), {
 	type: "line",
@@ -85,6 +86,13 @@ const myChartAvalanches = new Chart(document.getElementById('myChartAvalanches')
 		}]
 	},
 	options: {
+		scales: {
+			yAxes: [{
+				ticks: {
+					beginAtZero: true
+				}
+			}]
+		},
 		legend: {
 			display: false
 		},
@@ -92,6 +100,36 @@ const myChartAvalanches = new Chart(document.getElementById('myChartAvalanches')
 			display: true,
 			text: "Quantidade de avalanches por passos"
 		  }
+	}
+});
+
+const myChartAvalanchesTotais = new Chart(document.getElementById('myChartAvalanchesTotais'), {
+	type: "line",
+	data: {
+		labels: listaNumberOfSteps,
+		datasets: [{
+			fill: false,
+			lineTension: 0,
+			backgroundColor: "#192f56",
+			borderColor: "#345da9",
+			data: listaQtdAvalanchesTotais
+		}]
+	},
+	options: {
+		scales: {
+			yAxes: [{
+				ticks: {
+					beginAtZero: true
+				}
+			}]
+		},
+		legend: {
+			display: false
+		},
+		title: {
+			display: true,
+			text: "Quantidade de avalanches totais"
+		}
 	}
 });
 
@@ -159,7 +197,16 @@ function show_stats() {
 		listaQtdAvalanches.push(currentTiling.qtdAvalanches);
 		listaQtdGraosPerdidos.push(currentTiling.qtdGraosPerdidos);
 		listaQtdGraosTotais.push(get_totalSand());
-		listaNumberOfSteps.push(number_of_steps);
+		listaNumberOfSteps.push(number_of_steps + 1);
+
+		//Quantidade de avalanches totais = soma de avalanches a cada passo
+		if(listaQtdAvalanchesTotais.length === 0){
+			listaQtdAvalanchesTotais.push(currentTiling.qtdAvalanches);
+		}else{
+			listaQtdAvalanchesTotais.push(
+				listaQtdAvalanchesTotais[listaQtdAvalanchesTotais.length - 1] + currentTiling.qtdAvalanches
+			);
+		}
 
 		// if (listaNumberOfSteps.length > 5) {
 		// 	listaQtdAvalanches.shift();
@@ -168,8 +215,9 @@ function show_stats() {
 		// };
 
 		myChartAvalanches.update();
-		myChartGraosPerdidos.update();
-		myChartGraosTotais.update();
+		// myChartGraosPerdidos.update();
+		// myChartGraosTotais.update();
+		myChartAvalanchesTotais.update();
 
 		var mean = 0;
 		var std = 0;
