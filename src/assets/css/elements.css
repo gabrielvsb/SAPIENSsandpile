@@ -343,3 +343,27 @@ input:checked + .slider{
     font-size: 12px;
     color: #ffba25;
 }
+
+#btn-ajuda{
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    background-color: #4464AD;
+    color: white;
+    font-weight: bold;
+    height: 30px;
+    margin-top: 5px;
+}
+
+.quadrado{
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+}
+.linha-legenda {
+    display: flex;
+    align-items: center;
+}
+.legenda{
+    margin-left: 10px
+}

@@ -106,6 +106,11 @@
         />
         <span class="slider round"></span>
       </label>
+
+      <button id="btn-ajuda" class="btn btn-default btn-sm"
+         data-toggle="modal" data-target="#legendaModal">
+        Ajuda
+      </button>
     </header>
 
     <!-- ################################################################ CONTROL (LEFT) BAR -->
@@ -500,6 +505,51 @@
       </div>
     </div>
 
+    <div id="legendaModal" class="modal">
+      <div class="modal-content" style="width: 400px">
+        <div class="modal-header">
+          <h5 class="modal-title">Legenda padrão</h5>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="linha-legenda">
+            <div class="quadrado" style="background-color: #CFCCD6;"></div>
+            <div>
+              <span class="legenda">1 grão de areia</span>
+            </div>
+          </div>
+          <div class="linha-legenda">
+            <div class="quadrado" style="background-color: #52be8d; margin-top: 5px"></div>
+            <div>
+              <span class="legenda">2 grãos de areia</span>
+            </div>
+          </div>
+          <div class="linha-legenda">
+            <div class="quadrado" style="background-color: #366ba8; margin-top: 5px"></div>
+            <div>
+              <span class="legenda">3 grãos de areia</span>
+            </div>
+          </div>
+          <div class="linha-legenda">
+            <div class="quadrado" style="background-color: #f6c85f; margin-top: 5px"></div>
+            <div>
+              <span class="legenda">4 grão de areia</span>
+            </div>
+          </div>
+          <div class="linha-legenda">
+            <div class="quadrado" style="background-color: #DB2B39; margin-top: 5px"></div>
+            <div>
+              <span class="legenda">Avalanche</span>
+            </div>
+          </div>
+<!--          <div class="linha-legenda">-->
+<!--            <div class="quadrado" style="background-color: #000000; margin-top: 5px"></div>-->
+<!--            <div><span class="legenda">Onde ocorreu avalanche</span></div>-->
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+
     <!-- ################################################################ Canvas -->
     <div class="canvasDiv" id="canvasHolder"></div>
 
@@ -547,6 +597,15 @@
     <script src="./assets/js/Features/Batch_processings.js"></script>
 
     <script src="./assets/js/app.js"></script>
+
+    <script>
+      $('a[data-toggle="tooltip"]').tooltip({
+        animated: 'fade',
+        placement: 'left',
+        html: true
+      });
+    </script>
+
   </body>
   <!-- ############################################################ End. -->
 </html>
